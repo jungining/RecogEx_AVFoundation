@@ -8,6 +8,7 @@
 
 import UIKit
 import AVKit
+import Vision
 
 class ViewController: UIViewController ,AVCaptureVideoDataOutputSampleBufferDelegate{
     
@@ -42,12 +43,25 @@ class ViewController: UIViewController ,AVCaptureVideoDataOutputSampleBufferDele
     
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) { //프리뷰 뜨는거
+        guard let pixelBuffer : CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {return}//픽셀버퍼로 변경
+        
+        guard let model = try? VNCoreMLModel(for : Resnet50().model
+         
+        )   else { return }
+        
+        let request = VNCoreMLRequest(model: model) { (finishedReq, err) in
+            print(finishedReq.results)
+            
+            guard let results = finishedReq.results as? [VNClassificationObservation]
+            else { return }
+          
+            guard let firstObservation = results.first else { return }
+            
+            print(firstObservation.identifier, firstObservation.confidence)
+            
+            try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
+        }
     }
-
-
 }
 

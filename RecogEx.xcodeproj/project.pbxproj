@@ -12,6 +12,7 @@
 		267940E91FAB3D1A00FFAD84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 267940E71FAB3D1A00FFAD84 /* Main.storyboard */; };
 		267940EB1FAB3D1A00FFAD84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 267940EA1FAB3D1A00FFAD84 /* Assets.xcassets */; };
 		267940EE1FAB3D1A00FFAD84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 267940EC1FAB3D1A00FFAD84 /* LaunchScreen.storyboard */; };
+		267940F61FAB427B00FFAD84 /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 267940F51FAB427B00FFAD84 /* Resnet50.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		267940EA1FAB3D1A00FFAD84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		267940ED1FAB3D1A00FFAD84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		267940EF1FAB3D1A00FFAD84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		267940F51FAB427B00FFAD84 /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				267940E31FAB3D1A00FFAD84 /* AppDelegate.swift */,
 				267940E51FAB3D1A00FFAD84 /* ViewController.swift */,
 				267940E71FAB3D1A00FFAD84 /* Main.storyboard */,
+				267940F51FAB427B00FFAD84 /* Resnet50.mlmodel */,
 				267940EA1FAB3D1A00FFAD84 /* Assets.xcassets */,
 				267940EC1FAB3D1A00FFAD84 /* LaunchScreen.storyboard */,
 				267940EF1FAB3D1A00FFAD84 /* Info.plist */,
@@ -137,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				267940E61FAB3D1A00FFAD84 /* ViewController.swift in Sources */,
+				267940F61FAB427B00FFAD84 /* Resnet50.mlmodel in Sources */,
 				267940E41FAB3D1A00FFAD84 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
