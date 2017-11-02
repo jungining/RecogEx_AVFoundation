@@ -9,8 +9,11 @@
 import UIKit
 import AVKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController ,AVCaptureVideoDataOutputSampleBufferDelegate{
+    
+    
+    @IBOutlet weak var cameraView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,8 +24,22 @@ class ViewController: UIViewController {
         
         guard let input = try? AVCaptureDeviceInput(device : captureDevice) else { return }
         
+        
         captureSession.addInput(input)
         
+        captureSession.startRunning()
+        
+        let previewLayer = AVCaptureVideoPreviewLayer(session : captureSession)
+        
+        cameraView.layer.addSublayer(previewLayer)
+        
+        previewLayer.frame = cameraView.frame
+        
+        let dataOutput = AVCaptureVideoDataOutput()
+        dataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label : "videoOutput"))
+        captureSession.addOutput(dataOutput)
+        
+    
         
     }
 
